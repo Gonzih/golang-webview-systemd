@@ -1,0 +1,24 @@
+<template id="unit-list">
+    <div>
+        {{ state.data.err }}
+
+        <label for="searchString">Search string</label>
+        <input name="searchString" @keyup="search" v-model="searchString" autofocus></input>
+        <label for="userOnly">User connection?</label>
+        <input name="userOnly" type="checkbox" @change="search" v-model="userOnly"></input>
+
+        <table>
+            <tbody>
+            <tr v-for="unit in state.data.units">
+                <td> {{unit.ActiveState}} </td>
+                <td> {{unit.Name}} </td>
+                <td> {{unit.Description}} </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</template>
+
+<div id="app">
+    <unit-list :state="systemState"></unit-list>
+</div>
