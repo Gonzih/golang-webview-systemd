@@ -38,6 +38,7 @@ func main() {
 
 	w.Dispatch(func() {
 		w.InjectCSS(slurp("index.css"))
+		w.InjectCSS(slurp("https://fonts.googleapis.com/css?family=Roboto"))
 		checkErr(w.Eval(setBodyHTML(slurp("body.html"))))
 
 		systemState := SystemState{}

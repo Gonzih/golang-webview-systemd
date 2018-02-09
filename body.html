@@ -8,6 +8,13 @@
         <input name="userOnly" type="checkbox" @change="search" v-model="userOnly"></input>
 
         <table>
+            <thead>
+                <tr>
+                    <td width="5%">Status</td>
+                    <td width="20%">Name</td>
+                    <td>Description</td>
+                </tr>
+            </thead>
             <tbody>
             <tr v-for="unit in state.data.units">
                 <td> {{unit.ActiveState}} </td>

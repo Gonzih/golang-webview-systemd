@@ -1,5 +1,22 @@
 body {
+  font-family: 'Roboto', sans-serif;
   color: white;
   background-color: black;
-  font-size: 22px;
+  font-size: 26px;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+td {
+  white-space: nowrap;
+  overflow: hidden;
+  margin-left: 15px;
+}
+
+table thead tr td {
+  border-bottom: 1px solid white;
+  border-top: 1px solid white;
 }
