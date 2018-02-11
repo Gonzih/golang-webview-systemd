@@ -5,7 +5,7 @@
         <label for="searchString">Search string</label>
         <input name="searchString" @keyup="search" v-model="searchString" autofocus></input>
         <label for="userOnly">User connection?</label>
-        <input name="userOnly" type="checkbox" @change="search" v-model="userOnly"></input>
+        <input name="userOnly" type="checkbox" @change="search" v-model="isUserSearch"></input>
 
         <table>
             <thead>

@@ -46,6 +46,7 @@ func main() {
 		checkErr(err)
 
 		checkErr(w.Eval(slurp("https://unpkg.com/vue@2.5.13")))
+		checkErr(w.Eval(slurp("https://unpkg.com/vuex@2.0.0")))
 		checkErr(w.Eval(slurp("index.js")))
 	})
 
