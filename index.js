@@ -11,9 +11,7 @@ const store = new Vuex.Store({
             state.isUserSearch = value
         },
         toggleUserSearch: function(state) {
-            console.log("toggle, ")
             state.isUserSearch = !state.isUserSearch
-            console.log(state.isUserSearch)
         },
     }
 })
@@ -26,7 +24,7 @@ document.onkeydown = function(e) {
     if (e.which == 17) store.commit('setCtrl', true);
 
     if (store.state.isCtrl) {
-        if (e.which == 85) {
+        if (e.which == 85) { // u
             store.commit('toggleUserSearch');
         }
     }
