@@ -2,6 +2,8 @@ const store = new Vuex.Store({
     state: {
         isCtrl: false,
         isUserSearch: true,
+        searchString: "",
+        autoreload: false,
     },
     mutations: {
         setCtrl: function(state, value) {
@@ -9,6 +11,9 @@ const store = new Vuex.Store({
         },
         setUserSearch: function(state, value) {
             state.isUserSearch = value
+        },
+        setSearchString: function(state, value) {
+            state.searchString = value
         },
         toggleUserSearch: function(state) {
             state.isUserSearch = !state.isUserSearch
@@ -34,17 +39,17 @@ document.onkeydown = function(e) {
 Vue.component("unit-list", {
     template: "#unit-list",
     props: ["state"],
-    data: function() { return { searchString: '' } },
     computed: {
         isUserSearch: {
             get: function() { return store.state.isUserSearch },
             set: function(value) { store.commit('setUserSearch', value) }
-        }
+        },
+        searchString: {
+            get: function() { return store.state.searchString },
+            set: function(value) { store.commit('setSearchString', value) }
+        },
     },
     methods: {
-        click: function() {
-            this.state.reload()
-        },
         search: function() {
             this.state.search(this.searchString, this.isUserSearch);
         },
@@ -58,4 +63,8 @@ var vm = new Vue({
     },
 });
 
-window.systemState.search("", true)
+var reloadSystemd = function() {
+    window.systemState.search(store.state.searchString, store.state.isUserSearch);
+}
+
+reloadSystemd()
